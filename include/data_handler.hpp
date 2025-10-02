@@ -5,7 +5,9 @@
 #include <map>
 #include <string>
 #include <unordered_map>
-#include <cstdint>   // chuẩn hơn "stdint.h"
+#include <unordered_set>
+#include <cstdint>   
+#include <cstdlib>
 #include "data.hpp"
 
 class data_handler {

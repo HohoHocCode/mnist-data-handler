@@ -1,14 +1,16 @@
 #include "data_handler.hpp"
+#include <unordered_set>   // cần cho std::unordered_set
+#include <cstdlib>         // cần cho rand()
 
 data_handler::data_handler() {
     data_array = new std::vector<data *>;
-    train_array = new std::vector<data *>;
-    test_array = new std::vector<data *>;
-    validation_array = new std::vector<data *>;
+    training_data = new std::vector<data *>;
+    test_data = new std::vector<data *>;
+    validation_data = new std::vector<data *>;
 }
 
 data_handler::~data_handler() {
-    // TODO: free memory if needed
+    // TODO: free memory if cần
 }
 
 void data_handler::read_feature_vector(std::string path) {
@@ -83,7 +85,7 @@ void data_handler::split_data() {
     while (train_count < train_size) {
         int rand_index = rand() % data_array->size();
         if (used_indexes.find(rand_index) == used_indexes.end()) {
-            train_array->push_back(data_array->at(rand_index));
+            training_data->push_back(data_array->at(rand_index));
             used_indexes.insert(rand_index);
             train_count++;
         }
@@ -94,7 +96,7 @@ void data_handler::split_data() {
     while (test_count < test_size) {
         int rand_index = rand() % data_array->size();
         if (used_indexes.find(rand_index) == used_indexes.end()) {
-            test_array->push_back(data_array->at(rand_index));
+            test_data->push_back(data_array->at(rand_index));
             used_indexes.insert(rand_index);
             test_count++;
         }
@@ -105,15 +107,15 @@ void data_handler::split_data() {
     while (valid_count < valid_size) {
         int rand_index = rand() % data_array->size();
         if (used_indexes.find(rand_index) == used_indexes.end()) {
-            validation_array->push_back(data_array->at(rand_index));
+            validation_data->push_back(data_array->at(rand_index));
             used_indexes.insert(rand_index);
             valid_count++;
         }
     }
 
-    printf("Training Data Size: %lu\n", train_array->size());
-    printf("Test Data Size: %lu\n", test_array->size());
-    printf("Validation Data Size: %lu\n", validation_array->size());
+    printf("Training Data Size: %lu\n", training_data->size());
+    printf("Test Data Size: %lu\n", test_data->size());
+    printf("Validation Data Size: %lu\n", validation_data->size());
 }
 
 void data_handler::count_classes() {
@@ -137,21 +139,21 @@ uint32_t data_handler::convert_to_little_endian(const unsigned char *bytes) {
 }
 
 std::vector<data *> *data_handler::get_training_data() {
-    return train_array;
+    return training_data;
 }
 
 std::vector<data *> *data_handler::get_test_data() {
-    return test_array;
+    return test_data;
 }
 
 std::vector<data *> *data_handler::get_validation_data() {
-    return validation_array;
+    return validation_data;
 }
 
 int main() {
     data_handler *dh = new data_handler();
-    dh->read_feature_vector("../FILE_NAME");
-    dh->read_feature_label("../FILE_NAME");
+    dh->read_feature_vector("train-images-idx3-ubyte");
+    dh->read_feature_label("train-labels-idx1-ubyte");
     dh->split_data();
     dh->count_classes();
 }

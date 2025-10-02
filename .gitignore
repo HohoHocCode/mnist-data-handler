@@ -1,0 +1,19 @@
+# Build output
+/build/
+/Debug/
+/Release/
+*.exe
+*.obj
+*.lib
+*.pdb
+
+# Dataset
+/dataset/
+*.idx
+
+# VSCode settings
+.vscode/
+
+# Backup files
+*.bak
+*.tmp
