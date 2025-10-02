@@ -1,0 +1,29 @@
+#ifndef DATA_HPP
+#define DATA_HPP
+
+#include <vector>
+#include <cstdint>
+#include <cstdio>
+
+class data {
+    std::vector<uint8_t>* feature_vector; 
+    uint8_t label;
+    int enum_label; // A --> 1, B --> 2 use for CNN
+
+public: 
+    data();
+    ~data();
+    
+    void set_feature_vector(std::vector<uint8_t>*);
+    void append_to_feature_vector(uint8_t);
+    void set_label(uint8_t);
+    void set_enumerated_label(int);
+
+    int get_feature_vector_size();
+    uint8_t get_label();
+    int get_enumerated_label();  // trả về int thay vì uint8_t
+
+    std::vector<uint8_t>* get_feature_vector();
+};
+
+#endif // DATA_HPP
