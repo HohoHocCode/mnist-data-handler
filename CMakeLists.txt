@@ -1,22 +1,16 @@
 cmake_minimum_required(VERSION 3.10)
+project(mnist_ml)
 
-# Tên project
-project(MNISTHandler)
-
-# Sử dụng C++17
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Đặt thư mục include
-include_directories(include)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
-# Thêm các file nguồn
+# Thu thập các file nguồn
 set(SOURCES
-    src/data.cpp
-    src/data_handler.cpp
+    ${CMAKE_SOURCE_DIR}/src/data.cpp
+    ${CMAKE_SOURCE_DIR}/src/data_handler.cpp
+    ${CMAKE_SOURCE_DIR}/main.cpp
 )
 
-# Tạo static library từ các source
-add_library(MNISTHandlerLib ${SOURCES})
-
-# Nếu không có main.cpp, bạn có thể tạo library
-# add_library(MNISTHandlerLib ${SOURCES})
+add_executable(mnist_ml ${SOURCES})

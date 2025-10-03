@@ -9,7 +9,6 @@ data::~data() {
 }
 
 void data::set_feature_vector(std::vector<uint8_t>* vect) {
-    // Nếu muốn thay vector khác thì nên xóa cái cũ để tránh leak
     delete feature_vector;
     feature_vector = vect;
 }
@@ -34,7 +33,7 @@ uint8_t data::get_label() {
     return label;
 }
 
-int data::get_enumerated_label() {  // trả về int cho khớp header
+int data::get_enumerated_label() {
     return enum_label;
 }
 

@@ -1,29 +1,28 @@
-#ifndef __DATA_HANDLER_H
-#define __DATA_HANDLER_H
+#ifndef DATA_HANDLER_HPP
+#define DATA_HANDLER_HPP
 
 #include <vector>
 #include <map>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
-#include <cstdint>   
-#include <cstdlib>
+#include <cstdint>
 #include "data.hpp"
 
 class data_handler {
-    std::vector<data*> *data_array;       // all of the data (pre-splited)
-    std::vector<data*> *training_data;
-    std::vector<data*> *test_data;
-    std::vector<data*> *validation_data;
+    std::vector<data*>* data_array;
+    std::vector<data*>* training_data;
+    std::vector<data*>* test_data;
+    std::vector<data*>* validation_data;
 
     int num_classes;
     int feature_vector_size;
     std::map<uint8_t, int> class_map;
-    
+
     const double TRAIN_SET_PERCENT = 0.75;
     const double TEST_SET_PERCENT = 0.20;
     const double VALIDATION_SET_PERCENT = 0.05;
-    
+
 public:
     data_handler();
     ~data_handler();
@@ -34,10 +33,10 @@ public:
     void count_classes();
 
     uint32_t convert_to_little_endian(const unsigned char* bytes);
-   
+
     std::vector<data*>* get_training_data();
     std::vector<data*>* get_test_data();
     std::vector<data*>* get_validation_data();
 };
 
-#endif
+#endif // DATA_HANDLER_HPP

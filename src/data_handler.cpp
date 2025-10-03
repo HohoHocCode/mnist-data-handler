@@ -1,89 +1,108 @@
 #include "data_handler.hpp"
-#include <unordered_set>   // cần cho std::unordered_set
-#include <cstdlib>         // cần cho rand()
+#include <fstream>
+#include <random>
+#include <stdexcept>
+#include <iostream>
 
 data_handler::data_handler() {
-    data_array = new std::vector<data *>;
-    training_data = new std::vector<data *>;
-    test_data = new std::vector<data *>;
-    validation_data = new std::vector<data *>;
+    data_array = new std::vector<data*>;
+    training_data = new std::vector<data*>;
+    test_data = new std::vector<data*>;
+    validation_data = new std::vector<data*>;
 }
 
 data_handler::~data_handler() {
-    // TODO: free memory if cần
+    // Giải phóng từng con trỏ data trong các vector
+    if (data_array) {
+        for (data* d : *data_array) {
+            delete d;
+        }
+        delete data_array;
+    }
+    if (training_data) {
+        for (data* d : *training_data) {
+            delete d;
+        }
+        delete training_data;
+    }
+    if (test_data) {
+        for (data* d : *test_data) {
+            delete d;
+        }
+        delete test_data;
+    }
+    if (validation_data) {
+        for (data* d : *validation_data) {
+            delete d;
+        }
+        delete validation_data;
+    }
 }
 
 void data_handler::read_feature_vector(std::string path) {
-    uint32_t header[4]; // MAGIC | NUM_IMAGES | ROW_SIZE | COL_SIZE
-    unsigned char bytes[4];
-    FILE *f = fopen(path.c_str(), "rb");
-    if (f) {
-        for (int i = 0; i < 4; i++) {
-            if (fread(bytes, sizeof(bytes), 1, f)) {
-                header[i] = convert_to_little_endian(bytes);
-            }
-        }
-        printf("Done getting image file header.\n");
-        int image_size = header[2] * header[3];
-        for (int i = 0; i < (int)header[1]; i++) {
-            data *d = new data();
-            uint8_t element[1];
-            for (int j = 0; j < image_size; j++) {
-                if (fread(element, sizeof(element), 1, f)) {
-                    d->append_to_feature_vector(element[0]);
-                } else {
-                    printf("Error reading from image file.\n");
-                    exit(1);
-                }
-            }
-            data_array->push_back(d);
-        }
-        printf("Successfully read and stored %lu feature vectors.\n", data_array->size());
-        fclose(f);
-    } else {
-        printf("Could not open image file: %s\n", path.c_str());
-        exit(1);
+    std::ifstream file(path, std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open image file: " + path);
     }
+
+    uint32_t header[4]; // MAGIC | NUM_IMAGES | ROW_SIZE | COL_SIZE
+    file.read(reinterpret_cast<char*>(header), sizeof(header));
+    for (auto& h : header) {
+        h = convert_to_little_endian(reinterpret_cast<unsigned char*>(&h));
+    }
+    std::cout << "Done getting image file header.\n";
+
+    int image_size = header[2] * header[3];
+    for (int i = 0; i < static_cast<int>(header[1]); i++) {
+        data* d = new data();
+        for (int j = 0; j < image_size; j++) {
+            uint8_t element;
+            if (!file.read(reinterpret_cast<char*>(&element), sizeof(element))) {
+                throw std::runtime_error("Error reading from image file.");
+            }
+            d->append_to_feature_vector(element);
+        }
+        data_array->push_back(d);
+    }
+    std::cout << "Successfully read and stored " << data_array->size() << " feature vectors.\n";
 }
 
 void data_handler::read_feature_label(std::string path) {
-    uint32_t header[2]; // MAGIC | NUM_ITEMS
-    unsigned char bytes[4];
-    FILE *f = fopen(path.c_str(), "rb");
-    if (f) {
-        for (int i = 0; i < 2; i++) {
-            if (fread(bytes, sizeof(bytes), 1, f)) {
-                header[i] = convert_to_little_endian(bytes);
-            }
-        }
-        printf("Done getting label file header.\n");
-        for (int i = 0; i < (int)header[1]; i++) {
-            uint8_t element[1];
-            if (fread(element, sizeof(element), 1, f)) {
-                data_array->at(i)->set_label(element[0]);
-            } else {
-                printf("Error reading from label file.\n");
-                exit(1);
-            }
-        }
-        printf("Successfully read and stored %lu labels.\n", data_array->size());
-        fclose(f);
-    } else {
-        printf("Could not open label file: %s\n", path.c_str());
-        exit(1);
+    std::ifstream file(path, std::ios::binary);
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open label file: " + path);
     }
+
+    uint32_t header[2]; // MAGIC | NUM_ITEMS
+    file.read(reinterpret_cast<char*>(header), sizeof(header));
+    for (auto& h : header) {
+        h = convert_to_little_endian(reinterpret_cast<unsigned char*>(&h));
+    }
+    std::cout << "Done getting label file header.\n";
+
+    for (int i = 0; i < static_cast<int>(header[1]); i++) {
+        uint8_t element;
+        if (!file.read(reinterpret_cast<char*>(&element), sizeof(element))) {
+            throw std::runtime_error("Error reading from label file.");
+        }
+        data_array->at(i)->set_label(element);
+    }
+    std::cout << "Successfully read and stored " << data_array->size() << " labels.\n";
 }
 
 void data_handler::split_data() {
     std::unordered_set<int> used_indexes;
-    int train_size = (int)(data_array->size() * TRAIN_SET_PERCENT);
-    int test_size = (int)(data_array->size() * TEST_SET_PERCENT);
-    int valid_size = (int)(data_array->size() * VALIDATION_SET_PERCENT);
+    int train_size = static_cast<int>(data_array->size() * TRAIN_SET_PERCENT);
+    int test_size = static_cast<int>(data_array->size() * TEST_SET_PERCENT);
+    int valid_size = static_cast<int>(data_array->size() * VALIDATION_SET_PERCENT);
 
-    // Training Data
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(0, data_array->size() - 1);
+
     int train_count = 0;
     while (train_count < train_size) {
-        int rand_index = rand() % data_array->size();
+        int rand_index = dist(gen);
         if (used_indexes.find(rand_index) == used_indexes.end()) {
             training_data->push_back(data_array->at(rand_index));
             used_indexes.insert(rand_index);
@@ -91,10 +110,9 @@ void data_handler::split_data() {
         }
     }
 
-    // Test Data
     int test_count = 0;
     while (test_count < test_size) {
-        int rand_index = rand() % data_array->size();
+        int rand_index = dist(gen);
         if (used_indexes.find(rand_index) == used_indexes.end()) {
             test_data->push_back(data_array->at(rand_index));
             used_indexes.insert(rand_index);
@@ -102,10 +120,9 @@ void data_handler::split_data() {
         }
     }
 
-    // Validation Data
     int valid_count = 0;
     while (valid_count < valid_size) {
-        int rand_index = rand() % data_array->size();
+        int rand_index = dist(gen);
         if (used_indexes.find(rand_index) == used_indexes.end()) {
             validation_data->push_back(data_array->at(rand_index));
             used_indexes.insert(rand_index);
@@ -113,9 +130,9 @@ void data_handler::split_data() {
         }
     }
 
-    printf("Training Data Size: %lu\n", training_data->size());
-    printf("Test Data Size: %lu\n", test_data->size());
-    printf("Validation Data Size: %lu\n", validation_data->size());
+    std::cout << "Training Data Size: " << training_data->size() << "\n";
+    std::cout << "Test Data Size: " << test_data->size() << "\n";
+    std::cout << "Validation Data Size: " << validation_data->size() << "\n";
 }
 
 void data_handler::count_classes() {
@@ -128,32 +145,24 @@ void data_handler::count_classes() {
         }
     }
     num_classes = count;
-    printf("Successfully extracted %d unique classes.\n", num_classes);
+    std::cout << "Successfully extracted " << num_classes << " unique classes.\n";
 }
 
-uint32_t data_handler::convert_to_little_endian(const unsigned char *bytes) {
+uint32_t data_handler::convert_to_little_endian(const unsigned char* bytes) {
     return (uint32_t)((bytes[0] << 24) |
                       (bytes[1] << 16) |
                       (bytes[2] << 8) |
                       (bytes[3]));
 }
 
-std::vector<data *> *data_handler::get_training_data() {
+std::vector<data*>* data_handler::get_training_data() {
     return training_data;
 }
 
-std::vector<data *> *data_handler::get_test_data() {
+std::vector<data*>* data_handler::get_test_data() {
     return test_data;
 }
 
-std::vector<data *> *data_handler::get_validation_data() {
+std::vector<data*>* data_handler::get_validation_data() {
     return validation_data;
-}
-
-int main() {
-    data_handler *dh = new data_handler();
-    dh->read_feature_vector("train-images-idx3-ubyte");
-    dh->read_feature_label("train-labels-idx1-ubyte");
-    dh->split_data();
-    dh->count_classes();
 }
