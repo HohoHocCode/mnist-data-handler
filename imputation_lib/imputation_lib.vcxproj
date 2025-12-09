@@ -16,13 +16,30 @@
     <ClCompile Include="ls_impute.cuh" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ills_impute.cuh" />
+    <ClInclude Include="rlsp_impute.cuh" />
+    <ClInclude Include="slls_impute.cuh" />
+    <ClInclude Include="sknn_impute.cuh" />
+    <ClInclude Include="local_impute.cuh" />
+    <ClInclude Include="ls_workspace.cuh" />
     <ClInclude Include="svd_impute.cuh" />
+    <ClInclude Include="svd_workspace.cuh" />
   </ItemGroup>
   <ItemGroup>
+    <CudaCompile Include="lls_impute.cu" />
+    <CudaCompile Include="lls_impute.cuh" />
+    <CudaCompile Include="ills_impute.cu" />
+    <CudaCompile Include="slls_impute.cu" />
+    <CudaCompile Include="rlsp_impute.cu" />
+    <CudaCompile Include="sknn_impute.cu" />
+    <CudaCompile Include="knn_distance_opt.cu" />
     <CudaCompile Include="iknn_impute.cu" />
     <CudaCompile Include="knn_impute.cu" />
+    <CudaCompile Include="local_impute_impl.cu" />
     <CudaCompile Include="ls_impute.cu" />
+    <CudaCompile Include="ls_workspace.cu" />
     <CudaCompile Include="svd_impute.cu" />
+    <CudaCompile Include="svd_workspace.cu" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C9540385-DE4B-E03A-9349-45E54F488C5A}</ProjectGuid>

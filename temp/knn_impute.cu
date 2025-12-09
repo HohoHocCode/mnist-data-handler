@@ -161,10 +161,8 @@ namespace impute {
 
         // 3. Fill missing with KNN
         {
-            dim3 grid((N + BLOCK - 1) / BLOCK,
-                (N + BLOCK - 1) / BLOCK);
-
-            dim3 block(BLOCK, BLOCK);
+            dim3 grid(N);
+            dim3 block((D > BLOCK) ? BLOCK : D);
             knn_fill_kernel << <grid, block, 0, stream >> > (
                 d_X_rowmajor, d_mask, d_dist, N, D, K
                 );

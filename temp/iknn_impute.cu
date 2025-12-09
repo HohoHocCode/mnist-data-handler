@@ -99,7 +99,7 @@ namespace impute {
                 d_prev, d_X, d_mask, d_diff, size
                 );
 
-            float diff_value = metrics::sum_reduction(d_diff, size, stream);
+            float diff_value = metrics::sum_reduction(d_diff, size);
             float mse = diff_value / N;
 
             if (mse < tol) {

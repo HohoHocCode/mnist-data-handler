@@ -7,35 +7,140 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{26e2ed8b-5b70-4ff3-af8a-dfa4b7e05a61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\LLS-Impute">
+      <UniqueIdentifier>{c5baf1e9-318f-4d1b-ad88-60008b93a97c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IKKN-Impute">
+      <UniqueIdentifier>{a60d5635-5a86-4327-8fde-255729626a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\KNN-Impute">
+      <UniqueIdentifier>{cb12f667-52a7-486e-8d1a-f4a7a1857151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LS-Impute">
+      <UniqueIdentifier>{915df442-235e-4131-aa4d-1da1a32f81c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SKNN-Impute">
+      <UniqueIdentifier>{16cc69ce-8be1-4ef0-a4c5-a9295ed352bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SVD-Impute">
+      <UniqueIdentifier>{a9caf65f-3fa0-45db-9dc3-691de9fbfbc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\KNN-Impute">
+      <UniqueIdentifier>{c4d7c798-fa77-4e9e-8db4-a2a928f0b81f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IKNN-Impute">
+      <UniqueIdentifier>{99525ac1-4e1d-4c73-80cd-759af18374f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LS-Impute">
+      <UniqueIdentifier>{ec8f432d-dd43-4762-955d-20d2c9741f34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SKNN-Impute">
+      <UniqueIdentifier>{cefbcb3c-cb53-4ce8-8889-12343d1fdc7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SVD-Impute">
+      <UniqueIdentifier>{4fcbab9d-8579-415b-8ad7-2bb859ed5e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ILLS-Impute">
+      <UniqueIdentifier>{a958d9e9-363a-4a18-99af-ecbb3a814be8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SLLS-Impute">
+      <UniqueIdentifier>{20ba4030-50ee-4eaa-b301-30c847234b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RLSP-Impute">
+      <UniqueIdentifier>{6f9c552c-a5a2-4e78-8ac6-2d6ba1179085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LLS-Impute">
+      <UniqueIdentifier>{5bca4d25-0e66-4058-9f7a-6edb42fc4fa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ILLS-Impute">
+      <UniqueIdentifier>{7efa242f-3fc1-4c5a-a245-2574c01c6f29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RLSP-Impute">
+      <UniqueIdentifier>{27f235ee-1e16-4fd5-aff5-d1262985a531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SLLS-Impute">
+      <UniqueIdentifier>{5746dccc-ca42-4427-bd09-1cecb1069d61}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="iknn_impute.cuh">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\IKKN-Impute</Filter>
     </ClCompile>
     <ClCompile Include="knn_impute.cuh">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\KNN-Impute</Filter>
     </ClCompile>
     <ClCompile Include="ls_impute.cuh">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\LS-Impute</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="svd_impute.cuh">
+    <ClInclude Include="local_impute.cuh">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ls_workspace.cuh">
+      <Filter>Header Files\LS-Impute</Filter>
+    </ClInclude>
+    <ClInclude Include="svd_impute.cuh">
+      <Filter>Header Files\SVD-Impute</Filter>
+    </ClInclude>
+    <ClInclude Include="svd_workspace.cuh">
+      <Filter>Header Files\SVD-Impute</Filter>
+    </ClInclude>
+    <ClInclude Include="sknn_impute.cuh">
+      <Filter>Header Files\SKNN-Impute</Filter>
+    </ClInclude>
+    <ClInclude Include="ills_impute.cuh">
+      <Filter>Header Files\ILLS-Impute</Filter>
+    </ClInclude>
+    <ClInclude Include="rlsp_impute.cuh">
+      <Filter>Header Files\RLSP-Impute</Filter>
+    </ClInclude>
+    <ClInclude Include="slls_impute.cuh">
+      <Filter>Header Files\SLLS-Impute</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="iknn_impute.cu">
+    <CudaCompile Include="local_impute_impl.cu">
       <Filter>Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="knn_distance_opt.cu">
+      <Filter>Source Files\KNN-Impute</Filter>
     </CudaCompile>
     <CudaCompile Include="knn_impute.cu">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\KNN-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="iknn_impute.cu">
+      <Filter>Source Files\IKNN-Impute</Filter>
     </CudaCompile>
     <CudaCompile Include="ls_impute.cu">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\LS-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="ls_workspace.cu">
+      <Filter>Source Files\LS-Impute</Filter>
     </CudaCompile>
     <CudaCompile Include="svd_impute.cu">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SVD-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="svd_workspace.cu">
+      <Filter>Source Files\SVD-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="sknn_impute.cu">
+      <Filter>Source Files\SKNN-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="lls_impute.cuh">
+      <Filter>Header Files\LLS-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="lls_impute.cu">
+      <Filter>Source Files\LLS-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="ills_impute.cu">
+      <Filter>Source Files\ILLS-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="slls_impute.cu">
+      <Filter>Source Files\SLLS-Impute</Filter>
+    </CudaCompile>
+    <CudaCompile Include="rlsp_impute.cu">
+      <Filter>Source Files\RLSP-Impute</Filter>
     </CudaCompile>
   </ItemGroup>
 </Project>
