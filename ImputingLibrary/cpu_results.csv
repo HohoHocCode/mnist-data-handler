@@ -1,0 +1,8 @@
+Algorithm,MAE,RMSE,TimeMs
+KnnImputerCpu (K=10),64.6618,1538.87,6971.8
+LlsImputerCpu (Strict Kim2005, K=10),88.328,1020.7,21.505
+LsImputerCpu (Strict Bo2004, K=10),88.328,1020.7,20.374
+SllsImputerCpu (Strict Chu2008, K=10),88.328,1020.7,21.557
+BpcaImputerCpu (Rigorous Oba2003),74.4582,1940.41,21169.4
+IkNNImputerCpu (K=10),64.6618,1538.87,35521.5
+SvdImputerCpu (K=10),73.7728,1939.73,87114.3

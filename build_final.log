@@ -1,0 +1,49 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+Starting Final Compilation...
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(145): warning #550-D: variable "sum" was set but never used
+        float sum = 0.0f;
+              ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(161): warning #177-D: variable "x_local" was declared but never referenced
+      float x_local[BPCA_MAX_K];
+            ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(162): warning #177-D: variable "M_local" was declared but never referenced
+      float M_local[BPCA_MAX_K * BPCA_MAX_K];
+            ^
+
+d:\Imputing Library\imputation_lib\gpu\lls_impute_gpu.cu(27): warning #177-D: variable "lane" was declared but never referenced
+    int lane = tx % 32;
+        ^
+
+d:\Imputing Library\imputation_lib\gpu\lls_impute_gpu.cu(28): warning #177-D: variable "wid" was declared but never referenced
+    int wid = tx / 32;
+        ^
+
+d:\Imputing Library\imputation_lib\gpu\lls_impute_gpu.cu(29): warning #177-D: variable "num_warps" was declared but never referenced
+    int num_warps = blockDim.x / 32;
+        ^
+
+d:\Imputing Library\imputation_lib/gpu/gpu_wrappers.hpp(91): warning #177-D: variable "eff_K" was declared but never referenced
+      int eff_K = (K_req == -1) ? (D - 1) : K_req;
+          ^
+
+run_benchmarks.cu
+tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.cpp
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(14): error C2440: 'type cast': cannot convert from 'overloaded-function' to 'void (__cdecl *)(const float *,const uint8_t *,int,int,float *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(14): note: None of the functions with this name in scope match the target type
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(14): error C2660: '__cudaGetKernel': function does not take 1 arguments
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0\include\crt/device_functions.h(2930): note: see declaration of '__cudaGetKernel'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(14): note: while trying to match the argument list '(cudaKernel_t *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(33): error C2440: 'type cast': cannot convert from 'overloaded-function' to 'void (__cdecl *)(const float *,const uint8_t *,int,int,float *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(33): note: None of the functions with this name in scope match the target type
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(33): error C2660: '__cudaRegisterFunction': function does not take 9 arguments
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0\bin/../include\crt/host_runtime.h(246): note: see declaration of '__cudaRegisterFunction'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_00009064_00000000-7_run_benchmarks.cudafe1.stub.c(33): note: while trying to match the argument list '(void **, char *, const char [35], int, uint3 *, uint3 *, dim3 *, dim3 *, int *)'
+Compilation Failed with error 2

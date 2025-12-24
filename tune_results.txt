@@ -1,0 +1,26 @@
+Loading dataset: 11756x200
+Attempting fallback for ICU eval structure...
+Optimizing hyperparameters for RLSP...
+  - RlspImputerGpu (K=5, PC=2): MAE=43.96
+  - RlspImputerGpu (K=10, PC=2): MAE=44.3991
+  - RlspImputerGpu (K=10, PC=5): MAE=45.2152
+  - RlspImputerGpu (K=20, PC=2): MAE=44.8343
+  - RlspImputerGpu (K=20, PC=5): MAE=45.25
+  - RlspImputerGpu (K=20, PC=10): MAE=58.4128
+  - RlspImputerGpu (K=20, PC=15): MAE=58.4128
+  - RlspImputerGpu (K=30, PC=2): MAE=58.4128
+  - RlspImputerGpu (K=30, PC=5): MAE=58.4128
+  - RlspImputerGpu (K=30, PC=10): MAE=58.4128
+  - RlspImputerGpu (K=30, PC=15): MAE=58.4128
+>>> DONE. Best Parameters for RLSP: RlspImputerGpu (K=5, PC=2) (MAE=43.96)
+Optimizing hyperparameters for BGS...
+  - BgsImputerGpu (MaxGenes=5, Ridge=0.010000): MAE=78.8031
+  - BgsImputerGpu (MaxGenes=5, Ridge=0.100000): MAE=78.9018
+  - BgsImputerGpu (MaxGenes=5, Ridge=1.000000): MAE=78.4822
+  - BgsImputerGpu (MaxGenes=10, Ridge=0.010000): MAE=86.3081
+  - BgsImputerGpu (MaxGenes=10, Ridge=0.100000): MAE=85.5964
+  - BgsImputerGpu (MaxGenes=10, Ridge=1.000000): MAE=85.2795
+  - BgsImputerGpu (MaxGenes=20, Ridge=0.010000): MAE=103.413
+  - BgsImputerGpu (MaxGenes=20, Ridge=0.100000): MAE=97.2278
+  - BgsImputerGpu (MaxGenes=20, Ridge=1.000000): MAE=91.0839
+>>> DONE. Best Parameters for BGS: BgsImputerGpu (MaxGenes=5, Ridge=1.000000) (MAE=78.4822)

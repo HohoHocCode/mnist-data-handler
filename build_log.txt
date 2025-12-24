@@ -1,0 +1,14 @@
+D:\Imputing Library\imputation_lib/gpu/svd_workspace.cu(5): warning C4005: 'CUDA_CHECK': macro redefinition
+D:\Imputing Library\imputation_lib/gpu/bpca_impute_gpu.cu(8): note: see previous definition of 'CUDA_CHECK'
+D:\Imputing Library\imputation_lib/gpu/svd_workspace.cu(13): warning C4005: 'CUBLAS_CHECK': macro redefinition
+D:\Imputing Library\imputation_lib/gpu/svd_impute_gpu.cu(20): note: see previous definition of 'CUBLAS_CHECK'
+D:\Imputing Library\imputation_lib/gpu/svd_workspace.cu(20): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+D:\Imputing Library\imputation_lib/gpu/svd_impute_gpu.cu(28): note: see previous definition of 'CUSOLVER_CHECK'
+D:\Imputing Library\imputation_lib/gpu/svd_workspace.cu(5): warning C4005: 'CUDA_CHECK': macro redefinition
+D:\Imputing Library\imputation_lib/gpu/bpca_impute_gpu.cu(8): note: see previous definition of 'CUDA_CHECK'
+D:\Imputing Library\imputation_lib/gpu/svd_workspace.cu(13): warning C4005: 'CUBLAS_CHECK': macro redefinition
+D:\Imputing Library\imputation_lib/gpu/svd_impute_gpu.cu(20): note: see previous definition of 'CUBLAS_CHECK'
+D:\Imputing Library\imputation_lib/gpu/svd_workspace.cu(20): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+D:\Imputing Library\imputation_lib/gpu/svd_impute_gpu.cu(28): note: see previous definition of 'CUSOLVER_CHECK'
+run_benchmarks.cu
+tmpxft_00006624_00000000-7_run_benchmarks.cudafe1.cpp

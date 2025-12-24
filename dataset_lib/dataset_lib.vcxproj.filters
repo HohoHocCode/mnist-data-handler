@@ -18,10 +18,18 @@
     <ClInclude Include="dataset.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cuda_bin_io.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="dataset.cu">
       <Filter>Source Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cuda_bin_io.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

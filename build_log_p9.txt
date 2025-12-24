@@ -1,0 +1,47 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(9): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(17): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(16): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(25): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(11): warning C4005: 'CUDA_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(8): note: see previous definition of 'CUDA_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(20): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(9): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(28): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(16): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(5): warning C4005: 'CUDA_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(11): note: see previous definition of 'CUDA_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(13): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(20): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(20): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(28): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(198): error: name followed by "::" must be a class or namespace name
+    typedef cub::BlockReduce<float, 256> BlockReduce;
+            ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(198): error: expected an identifier
+    typedef cub::BlockReduce<float, 256> BlockReduce;
+                             ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(198): error: expected a ";"
+    typedef cub::BlockReduce<float, 256> BlockReduce;
+                             ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(199): error: name followed by "::" must be a class or namespace name
+    __declspec(__shared__) typename BlockReduce::TempStorage temp_storage;
+                                    ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(207): error: identifier "BlockReduce" is undefined
+      float aggregate = BlockReduce(temp_storage).Sum(thread_sum);
+                        ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(228): error: variable "impute::BPCA_MAX_K" has already been defined (previous definition at line 6)
+  constexpr int BPCA_MAX_K = 32;
+                ^
+
+6 errors detected in the compilation of "d:/Imputing Library/run_benchmarks.cu".
+run_benchmarks.cu

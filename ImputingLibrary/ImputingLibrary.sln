@@ -8,6 +8,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imputation_app", "ImputingL
 		{2AD96149-D2D5-4089-ADC4-194357160262} = {2AD96149-D2D5-4089-ADC4-194357160262}
 		{6A0B1295-6DE5-6DCB-3F65-B72590B7B199} = {6A0B1295-6DE5-6DCB-3F65-B72590B7B199}
 		{7A1A7352-560F-4991-A914-DCBB7F7D15D9} = {7A1A7352-560F-4991-A914-DCBB7F7D15D9}
+		{89881313-F848-4C2B-83D7-03A6FD36F153} = {89881313-F848-4C2B-83D7-03A6FD36F153}
 		{C9540385-DE4B-E03A-9349-45E54F488C5A} = {C9540385-DE4B-E03A-9349-45E54F488C5A}
 	EndProjectSection
 EndProject
@@ -24,6 +25,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		CUDA_Arch.props = CUDA_Arch.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "third_party", "third_party", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nlohmann", "nlohmann", "{5463F13C-077C-4FE1-8C1E-AA875BDC7786}"
+	ProjectSection(SolutionItems) = preProject
+		json.hpp = json.hpp
 	EndProjectSection
 EndProject
 Global
@@ -59,6 +67,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5463F13C-077C-4FE1-8C1E-AA875BDC7786} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33AC6ED7-026B-4139-994D-6BEB73C2C092}

@@ -1,0 +1,89 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(9): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(17): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(16): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(25): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(11): warning C4005: 'CUDA_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(8): note: see previous definition of 'CUDA_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(20): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(9): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(28): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(16): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(5): warning C4005: 'CUDA_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(11): note: see previous definition of 'CUDA_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(13): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(20): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(20): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(28): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(9): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(17): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(16): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(25): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(11): warning C4005: 'CUDA_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\cuda_utils.cuh(8): note: see previous definition of 'CUDA_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(20): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(9): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(28): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\soft_impute_gpu.cu(16): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(5): warning C4005: 'CUDA_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(11): note: see previous definition of 'CUDA_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(13): warning C4005: 'CUBLAS_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(20): note: see previous definition of 'CUBLAS_CHECK'
+d:\Imputing Library\imputation_lib\gpu\svd_workspace.cu(20): warning C4005: 'CUSOLVER_CHECK': macro redefinition
+d:\Imputing Library\imputation_lib\gpu\svd_impute_gpu.cu(28): note: see previous definition of 'CUSOLVER_CHECK'
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(145): warning #550-D: variable "sum" was set but never used
+        float sum = 0.0f;
+              ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(161): warning #177-D: variable "x_local" was declared but never referenced
+      float x_local[BPCA_MAX_K];
+            ^
+
+d:\Imputing Library\imputation_lib\gpu\bpca_impute_gpu.cu(162): warning #177-D: variable "M_local" was declared but never referenced
+      float M_local[BPCA_MAX_K * BPCA_MAX_K];
+            ^
+
+d:\Imputing Library\imputation_lib\gpu\lls_impute_gpu.cu(27): warning #177-D: variable "lane" was declared but never referenced
+    int lane = tx % 32;
+        ^
+
+d:\Imputing Library\imputation_lib\gpu\lls_impute_gpu.cu(28): warning #177-D: variable "wid" was declared but never referenced
+    int wid = tx / 32;
+        ^
+
+d:\Imputing Library\imputation_lib\gpu\lls_impute_gpu.cu(29): warning #177-D: variable "num_warps" was declared but never referenced
+    int num_warps = blockDim.x / 32;
+        ^
+
+d:\Imputing Library\imputation_lib/gpu/gpu_wrappers.hpp(95): warning #177-D: variable "eff_K" was declared but never referenced
+      int eff_K = (K_req == -1) ? (D - 1) : K_req;
+          ^
+
+run_benchmarks.cu
+tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.cpp
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): error C2440: 'type cast': cannot convert from 'overloaded-function' to 'void (__cdecl *)(const float *,const uint8_t *,int,int,float *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): note: None of the functions with this name in scope match the target type
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): error C2660: '__cudaGetKernel': function does not take 1 arguments
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0\include\crt/device_functions.h(2930): note: see declaration of '__cudaGetKernel'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): note: while trying to match the argument list '(cudaKernel_t *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): error C2440: 'type cast': cannot convert from 'overloaded-function' to 'void (__cdecl *)(float *,const uint8_t *,const float *,int,int)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): note: None of the functions with this name in scope match the target type
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): error C2660: '__cudaGetKernel': function does not take 1 arguments
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0\include\crt/device_functions.h(2930): note: see declaration of '__cudaGetKernel'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(14): note: while trying to match the argument list '(cudaKernel_t *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(41): error C2440: 'type cast': cannot convert from 'overloaded-function' to 'void (__cdecl *)(float *,const uint8_t *,const float *,int,int)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(41): note: None of the functions with this name in scope match the target type
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(41): error C2660: '__cudaRegisterFunction': function does not take 9 arguments
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0\bin/../include\crt/host_runtime.h(246): note: see declaration of '__cudaRegisterFunction'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(41): note: while trying to match the argument list '(void **, char *, const char [31], int, uint3 *, uint3 *, dim3 *, dim3 *, int *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(42): error C2440: 'type cast': cannot convert from 'overloaded-function' to 'void (__cdecl *)(const float *,const uint8_t *,int,int,float *)'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(42): note: None of the functions with this name in scope match the target type
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(42): error C2660: '__cudaRegisterFunction': function does not take 9 arguments
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0\bin/../include\crt/host_runtime.h(246): note: see declaration of '__cudaRegisterFunction'
+C:\Users\ASUS\AppData\Local\Temp\tmpxft_000094e0_00000000-7_run_benchmarks.cudafe1.stub.c(42): note: while trying to match the argument list '(void **, char *, const char [35], int, uint3 *, uint3 *, dim3 *, dim3 *, int *)'

@@ -1,0 +1,22 @@
+======================================
+    FULL SCALE IMPUTATION BENCHMARK   
+======================================
+Loading dataset: 11756x200
+Cannot open binary file: D:\icu_dataset\processed\cuda_eval\
+Cannot open binary file: D:\icu_dataset\processed\cuda_eval\
+Attempting fallback for ICU eval structure...
+Eval Data Loaded: 46340 entries.
+Starting BENCHMARK run (Limit 100 - DEBUG)...
+Running on first 1000 rows.
+Running LlsImputerCpu (Strict Kim2005, K=10)... [1000/1000 rows had 0 neighbors] Done in 15.91 ms. MAE=88.33 RMSE=1020.70
+Running BpcaImputerCpu (Rigorous Oba2003)... Done in 7920.07 ms. MAE=75.86 RMSE=1939.33
+Running SvdImputerCpu (K=10)... Done in 111779.85 ms. MAE=73.77 RMSE=1939.73
+Running LlsImputerGpu (K=10)... Done in 13.58 ms. MAE=88.33 RMSE=1020.70
+Running BpcaImputerGpu (Valid VB-EM)... Iter 0: Tau=0.0000 (NoiseVar=2.7659e+05)
+Iter 5: Tau=0.0000 (NoiseVar=1.3194e+05)
+Iter 10: Tau=0.0000 (NoiseVar=1.2763e+05)
+Iter 15: Tau=0.0000 (NoiseVar=1.1323e+05)
+Iter 19: Tau=0.0000 (NoiseVar=1.0297e+05)
+Done in 831.43 ms. MAE=85.69 RMSE=1014.49
+Running SvdImputerGpu (Rank=10)... Done in 903.39 ms. MAE=73.90 RMSE=1940.19
+Benchmark Complete. Results saved to benchmark_results.csv

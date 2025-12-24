@@ -1,0 +1,2 @@
+Algorithm,MAE,RMSE,TimeMs
+IKNN (K=5),72.8453,722.564,75.889
